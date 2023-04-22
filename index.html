@@ -35,6 +35,29 @@
             <!-- <a href="" class="btn">Hello</a> -->
         </section>
         <section id="music">
+            <div class="player">
+                <div class="details">
+                  <div class="now-playing">PLAYING 1 OF 5</div>
+                  <div class="track-art"></div>
+                  <div class="track-name">Track Name</div>
+                  <div class="track-artist">Track Artist</div>
+                </div>
+                <div class="buttons">
+                  <div class="prev-track" onclick="prevTrack()"><i class="material-symbols-outlined">skip_previous</i></div>
+                  <div class="playpause-track" onclick="playpauseTrack()"><i class="material-symbols-outlined">play_circle</i></div>
+                  <div class="next-track" onclick="nextTrack()"><i class="material-symbols-outlined">skip_next</i></div>
+                </div>
+                <div class="slider_container">
+                  <div class="current-time">01:27</div>
+                  <input type="range" min="1" max="100" value="0" class="seek_slider" onchange="seekTo()">
+                  <div class="total-duration">04:00</div>
+                </div>
+                <div class="slider_container">
+                  <i class="material-symbols-outlined" aria-hidden="true">volume_down</i>
+                  <input type="range" min="1" max="100" value="99" class="volume_slider" onchange="setVolume()">
+                  <i class="material-symbols-outlined" aria_hidden="true">volume_up</i>
+                </div>
+              </div>
 
         </section>
     </main>
