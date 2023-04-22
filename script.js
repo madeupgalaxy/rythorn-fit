@@ -5,22 +5,39 @@ $('#home').scrollIntoView({
 
 
    
-google.charts.load('current', {packages: ['corechart']});
-    google.charts.setOnLoadCallback(drawChart);
-function drawChart() {
-  var data = google.visualization.arrayToDataTable([
-    ['Element', 'Density', { role: 'style' }],
-    ['Copper', 8.94, '#b87333'],            // RGB value
-    ['Silver', 10.49, 'silver'],            // English color name
-    ['Gold', 19.30, 'gold'],
-  
-  ['Platinum', 21.45, 'color: #e5e4e2' ], // CSS-style declaration
-  ]);
+
+function drawChart(x) {
+  var data = google.visualization.arrayToDataTable(x);
   var chart = new google.visualization.ColumnChart(document.getElementById('daily-chart'));
       chart.draw(data, {
         backgroundColor: 'transparent'
       });
 }
+async function updateCharts () {
+  let doc = await FIREBASE.db.collection("caloriemeter").doc('test').get()
+  doc = await doc.data()
+
+  const chartData = [["Day", "Calories", {role: 'style'}]];
+
+  for (const property in doc) {
+    chartData.push([property.slice(property.length - 2, property.length), doc[property].Burnt, (doc[property].Burnt > doc[property].Goal) ? '#00ff00' : ((doc[property].Burnt > doc[property].Min) ? '#0000ff' : '#ff0000') ])
+  }
+
+  console.log(chartData)
+  drawChart(chartData)
+}
+firebase.auth().onAuthStateChanged(user => {
+  if (user)
+  {
+     FIREBASE.user = user;
+     google.charts.load('current', {packages: ['corechart']});
+  google.charts.setOnLoadCallback(updateCharts);
+  }   
+  else
+    window.location.href=window.location.origin+"/login"
+  })
+  
+
 
 // Ambient music
 
