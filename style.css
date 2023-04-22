@@ -1,0 +1,221 @@
+main {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+svg.circular-progress-bar {
+    width: 60%;
+    font: inherit;
+    color: var(--c-on-surface);
+}
+
+svg.circular-progress-bar > circle {
+    stroke-linecap: round;
+    stroke-width: 4px;
+    fill: none;
+    stroke-dasharray: 200;
+
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+}
+
+svg.circular-progress-bar circle.bg {
+    stroke: var(--c-outline-variant);
+    transition: stroke-dashoffset var(--a-standard) 200ms;
+    animation: animate-meter 1000ms var(--a-standard) 200ms forwards;
+    
+}
+
+svg.circular-progress-bar circle.guide {
+    stroke: var(--c-outline-colored-variant);
+    stroke-dashoffset: calc(200 - 2 * var(--guide-value, 0.5));
+    transition: stroke-dashoffset var(--a-standard) 200ms;
+}
+
+svg.circular-progress-bar circle.meter {
+    stroke: var(--c-outline-colored);
+    stroke-dashoffset: calc(200 - 2 * var(--value, 0.5));
+    transition: stroke-dashoffset var(--a-standard) 200ms;
+}
+
+@keyframes animate-meter {
+    from {
+        stroke-dashoffset: 199;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+svg.circular-progress-bar text.meter {
+    font-family: 'Oswald';
+    fill: var(--c-on-surface);
+    font-weight: 700;
+    font-size: 1.6em;
+    text-anchor: middle;
+    dominant-baseline: middle;
+}
+
+svg.circular-progress-bar text.description {
+    fill: var(--c-on-surface);
+    font-size: 0.25em;
+    text-anchor: middle;
+    dominant-baseline: middle;
+}
+
+/* Ambient music */
+
+#music {
+    background-color: #000;
+    color: var(--theme-color);
+}
+  
+#music::after  {
+    content: '';
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+
+    background-color: var(--theme-color);
+    border-radius: 200vmax;
+    width: 80vw;
+    height: 80vw;
+    z-index: -200;
+    filter: blur(64px) brightness(0.2);
+    transition: background-color .5s;
+  }
+  
+#music .player  {
+    height: 95vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+#music .search  {
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 25px;
+    background-blend-mode: normal;
+    backface-visibility: hidden;
+    box-shadow: none;
+    backface-visibility: hidden;
+    border-radius: 50px;
+  }
+
+#music #ssearch, #playlist_name  {
+    border-radius: 50px;
+    backface-visibility: hidden;
+    background: transparent;
+  }
+  
+#music .details  {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 25px;
+  }
+  
+#music .track-art  {
+    margin: 25px;
+    height: 250px;
+    width: 250px;
+    background-image: url("https://images.pexels.com/photos/262034/pexels-photo-262034.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
+    background-size: cover;
+    border-radius: 15%;
+  }
+  
+#music .now-playing  {
+    font-size: 1rem;
+  }
+  
+#music .track-name  {
+    font-size: 3rem;
+  }
+  
+#music .track-artist  {
+    font-size: 1.5rem;
+  }
+  
+#music .buttons  {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+#music .playpause-track, .prev-track, .next-track  {
+    padding: 25px;
+    opacity: 0.8;
+  
+    /* Smoothly transition the opacity */
+    transition: opacity .2s;
+  }
+  
+#music .playpause-track:hover, .prev-track:hover, .next-track:hover  {
+    opacity: 1.0;
+  }
+  
+#music .slider_container  {
+    width: 75%;
+    max-width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Modify the appearance of the slider */
+#music .seek_slider, .volume_slider  {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    height: 5px;
+    background: var(--theme-color);
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+  }
+  
+  /* Modify the appearance of the slider thumb */
+#music .seek_slider::-webkit-slider-thumb, .volume_slider::-webkit-slider-thumb  {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    background: white;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+  
+#music .seek_slider:hover, .volume_slider:hover  {
+    opacity: 1.0;
+  }
+  
+#music .seek_slider  {
+    width: 60%;
+  }
+  
+#music .volume_slider  {
+    width: 30%;
+  }
+  
+#music .current-time, .total-duration  {
+    padding: 10px;
+  }
+  
+#music i.fa-volume-down, i.fa-volume-up  {
+    padding: 10px;
+  }
+  
+#music i.fa-play-circle, i.fa-pause-circle, i.fa-step-forward, i.fa-step-backward  {
+    cursor: pointer;
+  }
