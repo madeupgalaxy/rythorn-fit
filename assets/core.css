@@ -9,6 +9,7 @@
     --c-outline-colored-variant: hsl(194, 10%, 26%);
     --c-outline: #a1a1a1;
     --c-outline-variant: #323234;
+    --c-error: #ff6e6e;
 }
 
 :root {
@@ -23,6 +24,7 @@
     --c-outline-colored-variant: hsl(194, 40%, 86%);
     --c-outline: #a1a1a1;
     --c-outline-variant: #e5f5f8;
+    --c-error: #e3112d;
 
     --a-standard: cubic-bezier(0.2, 0, 0, 1);
     --a-standard-accelerate: cubic-bezier(0.3, 0, 1, 1);
@@ -30,6 +32,10 @@
     --a-emphasized: cubic-bezier(0.2, 0, 0, 1);
     --a-emphasized-accelerate: cubic-bezier(0.3, 0, 0.8, 0.15);
     --a-emphasized-decelerate: cubic-bezier(0.05, 0.7, 0.1, 1);
+
+    --e-1: 0px 1px 2px 0px rgba(0,0,0,.3),0px 1px 3px 1px rgba(0,0,0,.15);
+    --e-2: 0px 1px 2px 0px rgba(0,0,0,.3),0px 2px 6px 2px rgba(0,0,0,.15);
+    --e-3: 0px 1px 3px 0px rgba(0,0,0,.3),0px 4px 8px 3px rgba(0,0,0,.15);
 }
 
 * {
@@ -62,7 +68,7 @@ html, body {
     flex-flow: row nowrap;
 }
 
-.snappy.fixed-width {
+.snappy.unscrollable {
     overflow: hidden;
 }
 
@@ -82,4 +88,46 @@ html, body {
 
 .cal-symbol {
     font-family: 'Oswald';
+}
+
+a {
+    color: var(--c-primary);
+}
+
+button, a.btn {
+    text-decoration: none;
+    color: inherit;
+    font: inherit;
+
+    background-color: var(--c-outline-variant);
+    border: none;
+    padding: 0 24px;
+    height: 40px;
+    border-radius: 200vmax;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+button.iconed, a.btn.iconed {
+    padding: 0 24px 0 16px;
+}
+
+button.iconed > .material-symbols-outlined, a.btn.iconed > .material-symbols.outlined {
+    margin-left: 0;
+    margin-right: 8px;
+}
+
+button.iconed.right, a.btn.iconed.right {
+    padding: 0 16px 0 24px;
+}
+
+button.iconed > .material-symbols-outlined, a.btn.iconed > .material-symbols.outlined {
+    margin-left: 8px;
+    margin-right: 0;
+}
+
+button.elevated-button, a.btn.elevated-button {
+    box-shadow: var(--e-1);
 }

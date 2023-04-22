@@ -1,0 +1,26 @@
+.page-logo {
+    width: 64px;
+    fill: var(--c-primary);
+    margin-top: 32px;
+    margin-bottom: 8px;
+}
+
+.tagline {
+    font-size: 2em;
+    font-weight: 700;
+    text-align: center;
+}
+
+#sign-in-button {
+    font-weight: 700;
+}
+
+p.error-message {
+    color: var(--c-error);
+    text-align: center;
+}
+
+p.tos {
+    position: absolute;
+    bottom: 16px;
+}
