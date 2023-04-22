@@ -34,17 +34,18 @@ p.tos {
 }
 
 form {
-    display: flex;
-    gap: 16px;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px 16px;
+    justify-items: center;
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
 }
 
 label {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 8px;
     font-weight: 700;
 }
 
@@ -53,7 +54,7 @@ label div {
     align-items: flex-start;
 }
 
-label input {
+label input, label select {
     appearance: none;
     background-color: var(--c-outline-variant);
     border: none;
@@ -74,4 +75,17 @@ label .unit {
     font-weight: 400;
     margin-left: 4px;
     margin-bottom: -10px;
+}
+
+nav {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    padding: 16px;
+}
+
+nav > .next {
+    float: right;
 }

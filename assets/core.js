@@ -17,7 +17,7 @@ const FIREBASE = {
     authenticate: async _ => {
         return new Promise((resolve, reject) => {
             firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(result => {
-                this.user = result.user;
+                FIREBASE.user = result.user;
                 resolve(result);
             }).catch(error => {
                 reject(error);

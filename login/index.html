@@ -64,9 +64,23 @@
                         <span class="unit">yr</span>
                     </div>
                 </label>
+                <label>
+                    <span>Gender</span>
+                    <div>
+                        <select name="gender-input">
+                            <!-- <option value="" class="material-symbols-outlined">expand_more</option> -->
+                            <option value="male" selected>Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <!-- <input type="number" name="age-input" min="13" max="200"> -->
+                        <span class="unit material-symbols-outlined" style="font-family: 'Material Symbols Outlined">expand_more</span>
+                    </div>
+                </label>
             </form>
+            <p class="error-message"></p>
             <nav>
-                <button onclick="window.location.href = window.location.origin">Next</a>
+                <button class="next" onclick="$('.error-message', false, $('#about')).textContent = '';const check = validateData(); if (check === true) syncData(); else $('.error-message', false, $('#about')).textContent = check;">Next</a>
                 <!-- <button onclick="$('#bmr').scrollIntoView({behavior: 'smooth'})">Next</a> -->
             </nav>
         </section>
