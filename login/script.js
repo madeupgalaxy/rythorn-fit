@@ -9,7 +9,7 @@ $('#sign-in-button').onclick = e => {
             if (doc.exists) {
                 window.location.href = window.location.origin;
             } else {
-                $('#about').scrollIntoView({ behavior: "smooth" })
+                $('#about').scrollIntoView({ behavior: "smooth", inline: 'end' })
             }
         })
     }).catch(error => {
