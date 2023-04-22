@@ -104,7 +104,7 @@ button, a.btn {
 
     background-color: var(--c-outline-variant);
     border: none;
-    padding: 0 24px;
+    padding: 16px 24px;
     height: 40px;
     border-radius: 200vmax;
     display: flex;
@@ -132,7 +132,7 @@ button.iconed > .material-symbols-outlined, a.btn.iconed > .material-symbols.out
 }
 
 button.elevated-button, a.btn.elevated-button {
-    box-shadow: var(--e-1);
+    /* box-shadow: var(--e-1); */
 }
 
 .light {

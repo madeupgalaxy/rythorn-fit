@@ -7,7 +7,7 @@ main {
 }
 
 svg.circular-progress-bar {
-    width: 60%;
+    width: 60vmin;
     font: inherit;
     color: var(--c-on-surface);
 }
@@ -71,22 +71,33 @@ svg.circular-progress-bar text.description {
 #music {
     background-color: #000;
     color: var(--theme-color);
+    overflow: hidden;
+}
+
+#music .player {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #000c;
+  z-index: 10000;
 }
   
 #music::after  {
     content: '';
     display: block;
-    position: fixed;
+    position: absolute;
     top: 0;
     right: 0;
     transform: translate(50%, -50%);
 
     background-color: var(--theme-color);
     border-radius: 200vmax;
-    width: 80vw;
-    height: 80vw;
-    z-index: -200;
-    filter: blur(64px) brightness(0.2);
+    width: 150vw;
+    height: 100vh;
+    /* z-index: 0; */
+    filter: blur(128px);
     transition: background-color .5s;
   }
   
