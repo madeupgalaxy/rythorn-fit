@@ -1,2 +1,2 @@
-# rythorn-fit
+# rythornfit
 An opensource fitness app
