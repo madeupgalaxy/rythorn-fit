@@ -9,11 +9,7 @@ $('#sign-in-button').onclick = e => {
             if (doc.exists) {
                 window.location.href = window.location.origin;
             } else {
-                // const age = await fetch(`https://people.googleapis.com/v1/people/${FIREBASE.user.uid}?personFields=names,emailAddresses`)
-                $('#about').scrollIntoView({
-                    behavior: "smooth",
-                    inline: 'center'
-                })
+                $('#about').scrollIntoView({ behavior: "smooth", inline: 'end' })
             }
         })
     }).catch(error => {
