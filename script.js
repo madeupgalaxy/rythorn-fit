@@ -1,4 +1,4 @@
-$('#home').scrollIntoView(true, {
+$('#home').scrollIntoView({
     behavior: 'instant',
     inline: 'center'
 });
