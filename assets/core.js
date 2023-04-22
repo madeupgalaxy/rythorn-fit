@@ -12,12 +12,13 @@ const firebaseConfig = {
 const app = firebase.initializeApp(firebaseConfig);
 
 const FIREBASE = {
+    db: firebase.firestore(),
+    provider: new firebase.auth.GoogleAuthProvider(),
     authenticate: async _ => {
         return new Promise((resolve, reject) => {
-            const provider = new firebase.auth.GoogleAuthProvider();
-            firebase.auth().signInWithPopup(provider).then(result => {
+            firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(result => {
                 this.user = result.user;
-                resolve(this.user);
+                resolve(result);
             }).catch(error => {
                 reject(error);
             })

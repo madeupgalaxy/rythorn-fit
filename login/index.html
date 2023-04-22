@@ -21,7 +21,7 @@
 </head>
 
 <body>
-    <main class="snappy unscrollable">
+    <main class="snappy">
         <section id="login">            
             <svg class="page-logo" fill="#fe883d" viewBox="0 0 70 100" version="1.1" xml:space="preserve"
                 xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
@@ -38,19 +38,47 @@
             <p class="tos"><a href="">Terms of service</a> &#8226; <a href="">Privacy policy</a></p>
         </section>
         <section id="about">
+            <i class="page-logo thin material-symbols-outlined">person</i>
             
+            <p class="tagline">About you</p>
+            
+            <form>
+                <label>
+                    <span>Height</span>
+                    <div>
+                        <input type="number" name="height-input" min="13" max="300">
+                        <span class="unit">cm</span>
+                    </div>
+                </label>
+                <label>
+                    <span>Weight</span>
+                    <div>
+                        <input type="number" name="weight-input" min="10" max="200">
+                        <span class="unit">kg</span>
+                    </div>
+                </label>
+                <label>
+                    <span>Age</span>
+                    <div>
+                        <input type="number" name="age-input" min="13" max="200">
+                        <span class="unit">yr</span>
+                    </div>
+                </label>
+            </form>
+            
+            <nav>
+                
+            </nav>
         </section>
         <section id="goals">
 
         </section>
     </main>
 
-    <nav>
-       
-    </nav>
 
     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
 
     <!-- <script type="module">
         import { initializeApp } from "";

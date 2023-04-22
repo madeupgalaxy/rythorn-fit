@@ -2,13 +2,21 @@
     width: 64px;
     fill: var(--c-primary);
     margin-top: 32px;
-    margin-bottom: 8px;
+    margin-bottom: 32px;
+
+    font-size: 64px;
+}
+
+.page-logo.thin {
+    margin-bottom: 16px;
 }
 
 .tagline {
     font-size: 2em;
     font-weight: 700;
     text-align: center;
+    margin-top: 16px;
+    margin-bottom: 64px;
 }
 
 #sign-in-button {
@@ -23,4 +31,47 @@ p.error-message {
 p.tos {
     position: absolute;
     bottom: 16px;
+}
+
+form {
+    display: flex;
+    gap: 16px;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    font-weight: 700;
+}
+
+label div {
+    display: flex;
+    align-items: flex-start;
+}
+
+label input {
+    appearance: none;
+    background-color: var(--c-outline-variant);
+    border: none;
+    height: 50px;
+    width: 64px;
+    border-radius: 4px;
+
+    color: inherit;
+    text-align: center;
+    font: inherit;
+    font-family: 'Oswald';
+    font-size: 1.4em;
+    font-weight: 400;
+}
+
+label .unit {
+    font-family: 'Oswald';
+    font-weight: 400;
+    margin-left: 4px;
+    margin-bottom: -10px;
 }
