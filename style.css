@@ -412,3 +412,10 @@ th {
   color: white;
 }
 
+#social {
+  position: absolute;
+  bottom: 16px;
+  display: flex;
+  width: calc(100% - 32px);
+  justify-content: space-between;
+}
