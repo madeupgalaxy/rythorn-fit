@@ -1,30 +1,66 @@
 $('#home').scrollIntoView({
-    behavior: 'instant',
-    inline: 'center'
+  behavior: 'instant',
+  inline: 'center'
 });
 
-
-   
-
-function drawChart(x) {
-  var data = google.visualization.arrayToDataTable(x);
-  var chart = new google.visualization.ColumnChart(document.getElementById('daily-chart'));
-      chart.draw(data, {
-        backgroundColor: 'transparent'
-      });
+function drawDailyChart(x) {
+  let data = google.visualization.arrayToDataTable(x);
+  let chart = new google.visualization.ColumnChart($('#daily-chart>.chart'));
+  chart.draw(data, {
+    backgroundColor: 'transparent',
+    legend: {
+      position: 'none'
+    },
+    animation: {
+      duration: 1000,
+      startup: true,
+      easing: 'easeOut'
+    },
+    fontName: 'Oswald',
+    hAxis: {
+      textStyle: {
+        color: '#e3e3e3'
+      }
+    }
+  });
 }
-async function updateCharts () {
-  let doc = await FIREBASE.db.collection("caloriemeter").doc('test').get()
-  doc = await doc.data()
 
-  const chartData = [["Day", "Calories", {role: 'style'}]];
+async function drawLeaderboard(x) {
+  console.log(x);
+  for (let i = 0; i < Object.keys(x).length && i < 5; i++) {
+    const liElm = document.createElement('li');
+    let src = await FIREBASE.db.collection('user-data').doc(Object.keys(x)[i]).get();
+    console.log(Object.keys(x)[i], src);
+    src = await src.data();
+    liElm.innerHTML = `<img src="${src.photoURL}">
+                        <div class="name">${src.displayName ?? 'user'}</div>
+                        <div class="calories">${Object.values(x)[i]}</div>`
+    
+    $('#leaderboard>.chart').appendChild(liElm);
 
-  for (const property in doc) {
-    chartData.push([property.slice(property.length - 2, property.length), doc[property].Burnt, (doc[property].Burnt > doc[property].Goal) ? '#00ff00' : ((doc[property].Burnt > doc[property].Min) ? '#0000ff' : '#ff0000') ])
   }
+}
 
-  console.log(chartData)
-  drawChart(chartData)
+async function updateCharts() {
+  let doc = await FIREBASE.db.collection("caloriemeter").doc(FIREBASE.user.uid).get()
+  doc = await doc.data()
+  const chartData = [["Day", "Calories", { role: 'style' }]];
+  for (const property in doc) {
+    chartData.push([property.slice(property.length - 2, property.length), doc[property].Burnt, (doc[property].Burnt > doc[property].Goal) ? '#4dbf4d' : ((doc[property].Burnt > doc[property].Min) ? '#54c7ec' : '#fa383e')])
+  }
+  drawDailyChart(chartData)
+
+  let docs = await FIREBASE.db.collection("caloriemeter").get();
+  const leaderboardData = {};
+  await docs.forEach(async doc => {
+    const id = doc.id;
+    doc = await doc.data();
+    Object.entries(doc).forEach(x => {
+      leaderboardData[id] = leaderboardData[id] >= 0 ? leaderboardData[id] + x[1].Burnt : 0;
+    })
+  })
+  const sortedLeaderboardData = Object.fromEntries(Object.entries(leaderboardData).sort(([,a],[,b]) => b - a))
+  drawLeaderboard(sortedLeaderboardData);
 }
 firebase.auth().onAuthStateChanged(async user => {
   if (user)

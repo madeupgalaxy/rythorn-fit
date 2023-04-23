@@ -10,6 +10,12 @@ main #home,#profile{
   background:linear-gradient(rgb(7, 148, 167),rgba(51, 4, 123, 0.8));
 }
 
+main #home {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
 svg.circular-progress-bar {
     width: 60vmin;
     font: inherit;
@@ -68,6 +74,59 @@ svg.circular-progress-bar text.description {
     font-size: 0.25em;
     text-anchor: middle;
     dominant-baseline: middle;
+}
+
+.statistics {
+  background-color: var(--c-primary-container);
+  width: 100%;
+  border-radius: 40px;
+  /* backdrop-filter: blur(40px) saturate(150%) brightness(0.7); */
+}
+
+.statistics .title {
+  margin: 24px 0 0 32px;
+  font-size: 1.3em;
+  font-weight: 700;
+}
+
+.statistics .subtitle {
+  margin: 8px 0 0 32px;
+  font-size: 0.8em;
+}
+
+.statistics .chart {
+  height: 200px;
+}
+
+#leaderboard .chart {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0 32px;
+}
+
+#leaderboard .chart li {
+  display: flex;
+  /* justify-content: space-between; */
+  gap: 16px;
+  align-items: center;
+  height: 40px;
+}
+
+#leaderboard .chart li img {
+  border-radius: 200vmax;
+  object-fit: contain;
+  width: 40px;
+}
+
+#leaderboard .chart li .name {
+  flex-grow: 1;
+}
+
+#leaderboard .chart li .calories {
+  font-family: 'Oswald';
+  flex-shrink: 1;
+  text-align: end;
 }
 
 /* Ambient music */

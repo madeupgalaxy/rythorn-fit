@@ -43,196 +43,212 @@
 
         </section>
         <section id="home">
-            <svg class="circular-progress-bar" viewBox="0 0 68 68" style="--guide-value:42;--value:32;--ideal-value:200">
+            <svg class="circular-progress-bar" viewBox="0 0 68 68" style="--guide-value:64;--value:50;--ideal-value:200">
                 <circle r="32" cx="50%" cy="50%" class="bg"></circle>
                 <circle r="32" cx="50%" cy="50%" class="guide"></circle>
                 <circle r="32" cx="50%" cy="50%" class="meter"></circle>
 
                 <text class="meter" x="50%" y="50%">50</text>
-                <text class="description" x="50%" y="70%">of <tspan class="min-cal">42</tspan>&ndash;<tspan class="max-cal">200</tspan> <tspan class="cal-symbol">Cal</tspan></text>
+                <text class="description" x="50%" y="70%">of <tspan class="min-cal">64</tspan>&ndash;<tspan class="max-cal">200</tspan> <tspan class="cal-symbol">Cal</tspan></text>
             </svg>
             <!-- <a href="" class="btn">Hello</a> -->
-            <div id="daily-chart"></div>
-            <div class="fab snappy">
-                <div>
-                    <span class="title">
-                        Workout Plan 1
-                    </span>
-                    <div class="skip" onclick="start1()">Skip</div>
-                    <div class="action" onclick="skip()" data-content="Start"></div>
-                </div>
-                <div>
-                    <span class="title">
-                        Workout Plan 2
-                    </span>
-                    <div class="skip" onclick="skip()">Skip</div>
-                    <div class="action" onclick="start1()" data-content="Start"></div>
-                </div>
-                <div>
-                    <span class="title">
-                        +
-                    </span>
-                    <div class="action" data-content="Create" onclick="create()"></div>
-                </div>
-            
-            </div>         
-            <dialog modal>
-                <h1>Choose Your Exercises</h1>
-                <form>
-                    <label>
+            <div id="daily-chart" class="statistics">
+                <div class="title">Daily progress</div>
+                <div class="subtitle">Last 7 days</div>
+
+                <div class="chart"></div>
+            </div>
+
+            <div id="leaderboard" class="statistics">
+                <div class="title">Leaderboard</div>
+
+                <ul class="chart">
+                    <!-- <li>
+                        <img src="https://lh3.googleusercontent.com/a/AGNmyxZIb_xCMO90HbxyYiYgKPDIxQ92noyviKN_7mMb5A=s96-c">
+                        <div class="name">Mayank Arya</div>
+                        <div class="calories">2500</div>
+                    </li> -->
+                </ul>
+
+                <div class="fab snappy">
                     <div>
-                        <input class="butt" type="checkbox" name="exercise" value="planks">
-                        
-                        Planks:
+                        <span class="title">
+                            Workout Plan 1
+                        </span>
+                        <div class="skip" onclick="start1()">Skip</div>
+                        <div class="action" onclick="skip()" data-content="Start"></div>
                     </div>
+                    <div>
+                        <span class="title">
+                            Workout Plan 2
+                        </span>
+                        <div class="skip" onclick="skip()">Skip</div>
+                        <div class="action" onclick="start1()" data-content="Start"></div>
+                    </div>
+                    <div>
+                        <span class="title">
+                            +
+                        </span>
+                        <div class="action" data-content="Create" onclick="create()"></div>
+                    </div>
+                
+                </div>         
+                <dialog modal>
+                    <h1>Choose Your Exercises</h1>
+                    <form>
+                        <label>
                         <div>
-                        <input type="number" class="exercise-duration" name="duration" placeholder="Duration (sec)">
-                        <span class="calories">0 calories</span>
+                            <input class="butt" type="checkbox" name="exercise" value="planks">
+                            
+                            Planks:
                         </div>
-                    </label>
-                    <label>
-                    <div>
-                        <input class="butt" type="checkbox" name="exercise" value="jumping-jacks">
-                        Jumping Jacks:
-                                               
-                    </div>
-                    <div>
-                        <input type="number" class="exercise-duration" name="duration" placeholder="Duration (sec)">
-                        <span class="calories">0 calories</span>
-                    </div>
-                    </label>
-                    <label>
-                    <div>
-                        <input class="butt" type="checkbox" name="exercise" value="high-stepping">
-                        
-                        High Stepping:
-                    </div>
-                    <div>
-                        <input type="number" class="exercise-duration" name="duration" placeholder="Duration (sec)">
-                        <span class="calories">0 calories</span>
-                    </div>
-                    </label>
-                    <label>
-                    <div>
-                        <input class="butt" type="checkbox" name="exercise" value="mountain-climber">
-                        
-                        Mountain Climber:
-                    </div>
-                    <div>
-                        <input type="number" class="exercise-duration" name="duration" placeholder="Duration (sec)">
-                        <span class="calories">0 calories</span>
-                    </div>
-                    </label>
-                    <label>
-                    <div>
-                        <input class="butt" type="checkbox" name="exercise" value="flutter-kicks">
-                        Flutter Kicks:
-                    </div>
-                    <div>
-                        <input type="number" class="exercise-duration" name="duration" placeholder="Duration (sec)">
-                        <span class="calories">0 calories</span>
-                    </div>
-                    </label>
-                    <label>
-                    <div>
-                        <input class="butt" type="checkbox" name="exercise" value="v-ups">
-                        
-                        V-Ups:
-                    </div>
-                    <div>
-                        <input type="number" class="exercise-duration" name="duration" placeholder="Duration (sec)">
-                        <span class="calories">0 calories</span>
-                    </div>
-                    </label>
-                    <label>
-                    <div>
-                        <input class="butt" type="checkbox" name="exercise" value="cobra-stretch">
-                        
-                        Cobra Stretch:
-                    </div>
-                    <div>
-                        <input type="number" class="exercise-duration" name="duration" placeholder="Duration (sec)">
-                        <span class="calories">0 calories</span>
-                    </div>
-                    </label>
-                    <label>
-                    <div>
-                        <input class="butt" type="checkbox" name="exercise" value="">
-                        Pushups:
-                    </div>
-                    <div>
-                        <input type="number" class="exercise-duration" name="duration" placeholder="Sets">
-                        <span class="calories">0 calories</span>
-                    </div>
-                    </label>
-                    <label>
-                    <div>
-                        <input class="butt" type="checkbox" name="exercise" value="">
-                        Squats:
-                    </div>
-                    <div>
-                        <input type="number" class="exercise-duration" name="duration" placeholder="Sets">
-                        <span class="calories">0 calories</span>
-                    </div>
-                    </label>
-                    <label>
-                    <div>
-                        <input class="butt" type="checkbox" name="exercise" value="">
-                        Lunges:
-                    </div>
-                    <div>
-                        <input type="number" class="exercise-duration" name="duration" placeholder="Sets">
-                        <span class="calories">0 calories</span>
-                    </div>
-                    </label>
-                    <label>
-                    <div>
-                        <input class="butt" type="checkbox" name="exercise" value="">
-                        Crunches:
-                    </div>
-                    <div>
-                        <input type="number" class="exercise-duration" name="duration" placeholder="Sets">
-                        <span class="calories">0 calories</span>
-                    </div>
-                    </label>
-                    <label>
-                    <div>
-                        <input class="butt" type="checkbox" name="exercise" value="">
-                        
-                        Burpees:
-                    </div>
-                    <div>
-                        <input type="number" class="exercise-duration" name="duration" placeholder="Sets">
-                        <span class="calories">0 calories</span>
-                    </div>
-                    </label>
-                    <label>
-                    <div>
-                        <input class="butt" type="checkbox" name="exercise" value="">
-                        Leg Raise:
-                    </div>
-                    <div>
-                        <input type="number" class="exercise-duration" name="duration" placeholder="Sets">
-                        <span class="calories">0 calories</span>
-                    </div>
-                    </label>
-                    <label>
-                    <div>
-                        <input class="butt" type="checkbox" name="exercise" value="">
-                        Oblique Twist:
-                    </div>
-                    <div>
-                        <input type="number" class="exercise-duration" name="duration" placeholder="Sets">
-                        <span class="calories">0 calories</span>
-                    </div>
-                    </label>
-
-
-                    <input type="submit" class="button" value="Add Workout" onclick="addWorkout()">
-                </form>
-
-            </dialog>
-              
+                            <div>
+                            <input type="number" class="exercise-duration" name="duration" placeholder="Duration (sec)">
+                            <span class="calories">0 calories</span>
+                            </div>
+                        </label>
+                        <label>
+                        <div>
+                            <input class="butt" type="checkbox" name="exercise" value="jumping-jacks">
+                            Jumping Jacks:
+                                                   
+                        </div>
+                        <div>
+                            <input type="number" class="exercise-duration" name="duration" placeholder="Duration (sec)">
+                            <span class="calories">0 calories</span>
+                        </div>
+                        </label>
+                        <label>
+                        <div>
+                            <input class="butt" type="checkbox" name="exercise" value="high-stepping">
+                            
+                            High Stepping:
+                        </div>
+                        <div>
+                            <input type="number" class="exercise-duration" name="duration" placeholder="Duration (sec)">
+                            <span class="calories">0 calories</span>
+                        </div>
+                        </label>
+                        <label>
+                        <div>
+                            <input class="butt" type="checkbox" name="exercise" value="mountain-climber">
+                            
+                            Mountain Climber:
+                        </div>
+                        <div>
+                            <input type="number" class="exercise-duration" name="duration" placeholder="Duration (sec)">
+                            <span class="calories">0 calories</span>
+                        </div>
+                        </label>
+                        <label>
+                        <div>
+                            <input class="butt" type="checkbox" name="exercise" value="flutter-kicks">
+                            Flutter Kicks:
+                        </div>
+                        <div>
+                            <input type="number" class="exercise-duration" name="duration" placeholder="Duration (sec)">
+                            <span class="calories">0 calories</span>
+                        </div>
+                        </label>
+                        <label>
+                        <div>
+                            <input class="butt" type="checkbox" name="exercise" value="v-ups">
+                            
+                            V-Ups:
+                        </div>
+                        <div>
+                            <input type="number" class="exercise-duration" name="duration" placeholder="Duration (sec)">
+                            <span class="calories">0 calories</span>
+                        </div>
+                        </label>
+                        <label>
+                        <div>
+                            <input class="butt" type="checkbox" name="exercise" value="cobra-stretch">
+                            
+                            Cobra Stretch:
+                        </div>
+                        <div>
+                            <input type="number" class="exercise-duration" name="duration" placeholder="Duration (sec)">
+                            <span class="calories">0 calories</span>
+                        </div>
+                        </label>
+                        <label>
+                        <div>
+                            <input class="butt" type="checkbox" name="exercise" value="">
+                            Pushups:
+                        </div>
+                        <div>
+                            <input type="number" class="exercise-duration" name="duration" placeholder="Sets">
+                            <span class="calories">0 calories</span>
+                        </div>
+                        </label>
+                        <label>
+                        <div>
+                            <input class="butt" type="checkbox" name="exercise" value="">
+                            Squats:
+                        </div>
+                        <div>
+                            <input type="number" class="exercise-duration" name="duration" placeholder="Sets">
+                            <span class="calories">0 calories</span>
+                        </div>
+                        </label>
+                        <label>
+                        <div>
+                            <input class="butt" type="checkbox" name="exercise" value="">
+                            Lunges:
+                        </div>
+                        <div>
+                            <input type="number" class="exercise-duration" name="duration" placeholder="Sets">
+                            <span class="calories">0 calories</span>
+                        </div>
+                        </label>
+                        <label>
+                        <div>
+                            <input class="butt" type="checkbox" name="exercise" value="">
+                            Crunches:
+                        </div>
+                        <div>
+                            <input type="number" class="exercise-duration" name="duration" placeholder="Sets">
+                            <span class="calories">0 calories</span>
+                        </div>
+                        </label>
+                        <label>
+                        <div>
+                            <input class="butt" type="checkbox" name="exercise" value="">
+                            
+                            Burpees:
+                        </div>
+                        <div>
+                            <input type="number" class="exercise-duration" name="duration" placeholder="Sets">
+                            <span class="calories">0 calories</span>
+                        </div>
+                        </label>
+                        <label>
+                        <div>
+                            <input class="butt" type="checkbox" name="exercise" value="">
+                            Leg Raise:
+                        </div>
+                        <div>
+                            <input type="number" class="exercise-duration" name="duration" placeholder="Sets">
+                            <span class="calories">0 calories</span>
+                        </div>
+                        </label>
+                        <label>
+                        <div>
+                            <input class="butt" type="checkbox" name="exercise" value="">
+                            Oblique Twist:
+                        </div>
+                        <div>
+                            <input type="number" class="exercise-duration" name="duration" placeholder="Sets">
+                            <span class="calories">0 calories</span>
+                        </div>
+                        </label>
+    
+    
+                        <input type="submit" class="button" value="Add Workout" onclick="addWorkout()">
+                    </form>
+    
+                </dialog>
         </section>
         <section id="music">
             <div class="player">
@@ -261,11 +277,6 @@
 
         </section>
     </main>
-
-    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
-
 
     <!-- <nav>
         <a href="#profile" class="material-symbols-outlined btn">
