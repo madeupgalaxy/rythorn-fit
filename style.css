@@ -6,8 +6,8 @@ main {
     height: 100%;
 }
 
-main #home,#profile{
-  background:linear-gradient(rgb(7, 148, 167),rgba(51, 4, 123, 0.8));
+main #home, #profile{
+  background:linear-gradient(#0794a7,#2e0868);
 }
 
 main #home {
@@ -15,7 +15,12 @@ main #home {
   flex-direction: column;
   gap: 32px;
   overflow: scroll;
+  padding-top: 80px;
   padding-bottom: 150px;
+}
+
+main #profile {
+  z-index: 20;
 }
 
 svg.circular-progress-bar {
@@ -307,11 +312,11 @@ svg.circular-progress-bar text.description {
     transform: translateX(-50%);
     width: 200px;
     height: 100px;
-    background-color: rgb(234, 119, 31);
+    background-color: var(--c-primary);
     border-radius: 30px;
     transition: all 500ms var(--a-standard);
     box-shadow: var(--e-2);
-    
+    color: var(--c-on-primary)
   }
   
   .fab .action {
@@ -322,6 +327,9 @@ svg.circular-progress-bar text.description {
     text-align: top;
     height: 50px;
     background-color: rgb(15, 15, 73);
+    color: var(--c-on-surface);
+    font-family: 'Oswald';
+    font-weight: 700;
     border-radius: 0px;
     display: flex;
     align-items: center;
@@ -371,7 +379,16 @@ svg.circular-progress-bar text.description {
     background-color: rgb(34, 43, 43);
     border: 1px solid var(--c-outline);
     border-radius: 8px;
-    
+}
+
+dialog .close-button {
+  float: right;
+  width: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--c-primary);
+  color: var(--c-on-primary);
 }
 
 .button {
@@ -417,6 +434,25 @@ th {
   color: white;
 }
 
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 16px;
+  font-family: 'Oswald';
+  font-weight: 700;
+  font-size: 1.5em;
+  background: linear-gradient(to bottom, #000a, #fff0) no-repeat;
+  background-position-y: -70px;
+  transition: all 200ms var(--a-standard);
+}
+
+nav.elevated {
+  background-position-y: 0px;
+}
 #social {
   position: absolute;
   bottom: 16px;
@@ -434,4 +470,8 @@ fieldset img {
   margin-top: -5px;
   width: 100%;
   height: 100%;
+}
+nav > button {
+  padding: 0;
+  background: none;
 }
