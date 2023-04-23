@@ -453,7 +453,13 @@ nav {
 nav.elevated {
   background-position-y: 0px;
 }
-
+#social {
+  position: absolute;
+  bottom: 16px;
+  display: flex;
+  width: calc(100% - 32px);
+  justify-content: space-between;
+}
 nav > button {
   padding: 0;
   background: none;

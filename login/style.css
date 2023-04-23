@@ -89,3 +89,7 @@ nav {
 nav > .next {
     float: right;
 }
+
+body{
+    background:linear-gradient(rgb(7, 148, 167),rgba(51, 4, 123, 0.8));
+}
