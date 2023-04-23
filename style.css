@@ -95,12 +95,14 @@ svg.circular-progress-bar text.description {
 }
 
 .statistics .chart {
-  height: 200px;
+  /* height: 200px; */
+  margin-bottom: 32px;
 }
 
 #leaderboard .chart {
   display: flex;
   flex-direction: column;
+  gap: 16px;
   list-style: none;
   padding: 0 32px;
 }
