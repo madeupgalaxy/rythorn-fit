@@ -6,6 +6,10 @@ main {
     height: 100%;
 }
 
+main #home,#profile{
+  background:linear-gradient(rgb(7, 148, 167),rgba(51, 4, 123, 0.8));
+}
+
 svg.circular-progress-bar {
     width: 60vmin;
     font: inherit;
@@ -230,3 +234,121 @@ svg.circular-progress-bar text.description {
 #music i.fa-play-circle, i.fa-pause-circle, i.fa-step-forward, i.fa-step-backward  {
     cursor: pointer;
   }
+
+  /*fab css*/
+  .fab {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 100px;
+    background-color: rgb(234, 119, 31);
+    border-radius: 30px;
+    transition: all 500ms var(--a-standard);
+    box-shadow: var(--e-2);
+    
+  }
+  
+  .fab .action {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    height: 50px;
+    background-color: rgb(15, 15, 73);
+    border-radius: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 500ms var(--a-standard);
+  }
+  .fab .skip {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: calc(50%);
+    text-align: center;
+    height: 50px;
+    background-color: rgb(15, 15, 73);
+    border-radius: 0px;
+    border-left: 1px solid var(--c-outline);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 500ms var(--a-standard);
+  }
+  
+  .fab .action::after {
+    content: attr(data-content);
+  }
+  
+  .fab.active {
+    width:calc(100% - 32px);
+    overflow: hidden;
+  }
+  .fab.active .action {
+    width: calc(50%);
+    border-radius: 0px;
+  }
+  .fab.active .action::after {
+    content: 'Next';
+  }
+
+  dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: calc((100% - 32px));
+    height: calc(100% - 32px);
+    background: var(--c-surface);
+    color: var(--c-on-surface);
+    background-color: rgb(34, 43, 43);
+    border: 1px solid var(--c-outline);
+    border-radius: 8px;
+    
+}
+
+.button {
+    display: center;
+    border-radius: 5px;
+    /* background-color: #d5daeb; */
+}
+
+form{
+    /* margin-left: 35%;
+    margin-right: 35%; */
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: left;
+    justify-content: center;
+    border-radius: 30px;
+}
+.exercise-duration{
+    width: 65px;
+    padding: 16px;
+
+
+    border-radius: 5px;
+    background-color: #d5daeb;
+}
+
+label{
+    display: flex;
+    justify-content: space-between;
+}
+
+table, th, td {
+  border: 3px solid black;
+  border-collapse: collapse;
+  padding: 5px;
+  
+}
+
+th {
+  background-color: var(--indicator);
+  color: white;
+}
+

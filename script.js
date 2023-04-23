@@ -26,18 +26,41 @@ async function updateCharts () {
   console.log(chartData)
   drawChart(chartData)
 }
-firebase.auth().onAuthStateChanged(user => {
+firebase.auth().onAuthStateChanged(async user => {
   if (user)
   {
      FIREBASE.user = user;
      google.charts.load('current', {packages: ['corechart']});
   google.charts.setOnLoadCallback(updateCharts);
-  }   
-  else
-    window.location.href=window.location.origin+"/login"
-  })
-  
+  var name = user.displayName;
+  var photoUrl = user.photoURL;
+  console.log(name)
+  document.getElementById("user-name").textContent = name;
+  document.getElementById("user-photo").src = photoUrl;
+  var tableBody = document.getElementById("table-body");
+  var data = await FIREBASE.db.collection('user-data').doc(user.uid).get()
+  data = await data.data();
+  // var weight = firebase.database().ref("user-data/" + user.uid + "/weight");
+  var bmi = calculateBmi(data.height,data.weight);
+  $('table').style.setProperty('--indicator', (bmi >= 18 && bmi <= 25) ? '#04AA6D' : '#ff6e6e')
+      var row = document.createElement("tr");
+      row.innerHTML = "<td>" + 17 + "</td><td>" + data.height + "</td><td>" + data.weight + "</td><td>" + bmi + "</td>";
+      tableBody.appendChild(row);
 
+  }
+   else
+    window.location.href=window.location.origin+"/login"
+  })  
+
+  // Function to calculate the user's BMI
+function calculateBmi(height, weight) {
+  var bmi = (weight / Math.pow(height / 100, 2)).toFixed(2);
+  return bmi;
+}
+
+function create() {
+  $('dialog').showModal()
+}
 
 // Ambient music
 
@@ -195,3 +218,36 @@ function seekUpdate() {
     total_duration.textContent = durationMinutes + ":" + durationSeconds;
   }
 }
+
+
+const exercises = document.querySelectorAll('input[name="exercise"]');
+const durations = document.querySelectorAll('input[name="duration"]');
+
+exercises.forEach((exercise, index) => {
+exercise.addEventListener('change', () => {
+    if (exercise.checked) {
+    durations[index].removeAttribute('disabled');
+    } else {
+    durations[index].setAttribute('disabled', true);
+    durations[index].value = '';
+    updateCalories(index, 0);
+    }
+});
+
+durations[index].addEventListener('input', (e) => {
+    const duration = durations[index].value;
+    if (duration) {
+    const calories = duration * 5; // assume 1 sec burns 5 calories
+    updateCalories(index, calories);
+    } else {
+    updateCalories(index, 0);
+    }
+});
+});
+
+function updateCalories(index, calories) {
+const calorieSpan = durations[index].parentNode.querySelector('.calories');
+calorieSpan.textContent = calories + ' calories';
+}
+
+console.log(FIREBASE.user)
