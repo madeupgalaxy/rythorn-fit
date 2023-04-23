@@ -14,10 +14,13 @@ main #home {
   display: flex;
   flex-direction: column;
   gap: 32px;
+  overflow: scroll;
+  padding-bottom: 150px;
 }
 
 svg.circular-progress-bar {
     width: 60vmin;
+    flex-shrink: 0;
     font: inherit;
     color: var(--c-on-surface);
 }
@@ -298,7 +301,7 @@ svg.circular-progress-bar text.description {
 
   /*fab css*/
   .fab {
-    position: absolute;
+    position: fixed;
     bottom: 16px;
     left: 50%;
     transform: translateX(-50%);
