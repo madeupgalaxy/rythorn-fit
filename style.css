@@ -424,3 +424,14 @@ th {
   width: calc(100% - 32px);
   justify-content: space-between;
 }
+
+legend {
+  font-family: cursive;
+}
+
+
+fieldset img {
+  margin-top: -5px;
+  width: 100%;
+  height: 100%;
+}

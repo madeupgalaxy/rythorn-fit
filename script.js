@@ -143,10 +143,11 @@ let track_list = [
   },
   {
     name: "Workout",
-    artist: "advaita",
+    artist: "Richard",
     image: "https://images.pexels.com/photos/1717969/pexels-photo-1717969.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=250&w=250",
     path: "https://github.com/Advaita151/Git-tutorial/raw/master/Richard%20Jonas%20-%20Impulse%20Workout.mp3",
   },
+  
 
 ];
 
