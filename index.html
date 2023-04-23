@@ -24,18 +24,32 @@
 
         </section>
         <section id="home">
-            <svg class="circular-progress-bar" viewBox="0 0 68 68" style="--guide-value:42;--value:32;--ideal-value:200">
+            <svg class="circular-progress-bar" viewBox="0 0 68 68" style="--guide-value:64;--value:50;--ideal-value:200">
                 <circle r="32" cx="50%" cy="50%" class="bg"></circle>
                 <circle r="32" cx="50%" cy="50%" class="guide"></circle>
                 <circle r="32" cx="50%" cy="50%" class="meter"></circle>
 
                 <text class="meter" x="50%" y="50%">50</text>
-                <text class="description" x="50%" y="70%">of <tspan class="min-cal">42</tspan>&ndash;<tspan class="max-cal">200</tspan> <tspan class="cal-symbol">Cal</tspan></text>
+                <text class="description" x="50%" y="70%">of <tspan class="min-cal">64</tspan>&ndash;<tspan class="max-cal">200</tspan> <tspan class="cal-symbol">Cal</tspan></text>
             </svg>
             <!-- <a href="" class="btn">Hello</a> -->
-            <div id="daily-chart"></div>
-            <div>
-                
+            <div id="daily-chart" class="statistics">
+                <div class="title">Daily progress</div>
+                <div class="subtitle">Last 7 days</div>
+
+                <div class="chart"></div>
+            </div>
+
+            <div id="leaderboard" class="statistics">
+                <div class="title">Leaderboard</div>
+
+                <ul class="chart">
+                    <!-- <li>
+                        <img src="https://lh3.googleusercontent.com/a/AGNmyxZIb_xCMO90HbxyYiYgKPDIxQ92noyviKN_7mMb5A=s96-c">
+                        <div class="name">Mayank Arya</div>
+                        <div class="calories">2500</div>
+                    </li> -->
+                </ul>
             </div>
         </section>
         <section id="music">
@@ -65,11 +79,6 @@
 
         </section>
     </main>
-
-    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
-
 
     <!-- <nav>
         <a href="#profile" class="material-symbols-outlined btn">

@@ -7,7 +7,7 @@ $('#sign-in-button').onclick = e => {
         $('.error-message').textContent = '';
 
         FIREBASE.db.collection("user-data").doc(result.user.uid).get().then(async doc => {
-            if (doc.exists) {
+            if (doc.exists && !window.location.search.slice(1).split('&').includes('editProfile')) {
                 window.location.href = window.location.origin;
             } else {
                 $('#about').scrollIntoView({ behavior: "smooth", inline: 'end' })
@@ -35,6 +35,8 @@ const syncData = _ => {
         weight: $('[name=weight-input]').value * 1,
         age: $('[name=age-input]').value * 1,
         gender: $('[name=gender-input]').value,
+        photoURL: FIREBASE.user.photoURL,
+        displayName: FIREBASE.user.displayName
     }).then(data => {
         window.location.href = window.location.origin;
     }).catch(error => {
