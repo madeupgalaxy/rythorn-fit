@@ -316,7 +316,7 @@ svg.circular-progress-bar text.description {
     bottom: 0;
     left: 0;
     width: 100%;
-    text-align: center;
+    text-align: top;
     height: 50px;
     background-color: rgb(15, 15, 73);
     border-radius: 0px;
@@ -405,6 +405,7 @@ table, th, td {
   border: 3px solid black;
   border-collapse: collapse;
   padding: 5px;
+  
   
 }
 
