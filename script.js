@@ -3,6 +3,11 @@ $('#home').scrollIntoView({
   inline: 'center'
 });
 
+$('#home').onscroll = _ => {
+  console.log(window.scrollY)
+  $('#home').scrollTop > 5 ? $('nav').classList.add('elevated') : $('nav').classList.remove('elevated');
+}
+
 function drawDailyChart(x) {
   let data = google.visualization.arrayToDataTable(x);
   let chart = new google.visualization.ColumnChart($('#daily-chart>.chart'));

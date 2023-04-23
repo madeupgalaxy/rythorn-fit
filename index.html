@@ -43,6 +43,11 @@
 
         </section>
         <section id="home">
+            <nav>
+                <button onclick="$('#profile').scrollIntoView({ behavior: 'smooth', inline: 'center' })" class="material-symbols-outlined">person</button>
+                <div>Rythorn</div>
+                <button onclick="$('#music').scrollIntoView({ behavior: 'smooth', inline: 'center' })" class="material-symbols-outlined">music_note</button>
+            </nav>
             <svg class="circular-progress-bar" viewBox="0 0 68 68" style="--guide-value:64;--value:50;--ideal-value:200">
                 <circle r="32" cx="50%" cy="50%" class="bg"></circle>
                 <circle r="32" cx="50%" cy="50%" class="guide"></circle>
@@ -86,15 +91,15 @@
                         <div class="action" onclick="start1()" data-content="Start"></div>
                     </div>
                     <div>
-                        <span class="workout-title">
-                            +
+                        <span class="material-symbols-outlined workout-title">
+                            add
                         </span>
                         <div class="action" data-content="Create" onclick="create()"></div>
                     </div>
                 
                 </div>         
                 <dialog modal>
-                    <h1>Choose Your Exercises</h1>
+                    <h1>Choose Your Exercises <button onclick="this.parentElement.parentElement.close()" class="material-symbols-outlined close-button">close</button></h1>
                     <form>
                         <label>
                         <div>
